@@ -1,0 +1,177 @@
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
+
+using namespace std;
+
+		
+int main()
+{
+	
+	ofstream archivo;
+	archivo.open("datos.txt",ios::out);
+	
+	archivo<<"\n\n\t\t\tTransportes YaVoy"<<endl;
+    archivo<<"\t\t\t-----------------"<<endl;
+    archivo<<"\n\tPasajes Pagados: \n"<<endl;
+	
+	int opcion;
+    bool repetir = true;
+    int v[1]{0};
+    int n;
+    int m;
+    int x;
+    int total;
+    int dis;
+
+    do 
+	{
+        system("cls");
+	
+	cout<<"\n\n\t\t\tTransportes YaVoy"<<endl;
+    cout<<"\t\t\t-----------------"<<endl;
+	cout<<"\tMenu: "<<endl;
+	cout<<"1. Ver rutas y precio"<<endl;
+	cout<<"2. Pagar pasaje"<<endl;
+	cout<<"3. Asientos disponibles"<<endl;
+	cout<<"0. Salir"<<endl;
+	
+	cout<<"\nSeleccione una opcion: ";
+    cin>>opcion;
+	
+	switch(opcion)
+	{ 
+		case 1:
+			cout<<"\n   Ruta de Ciudad Capital a Cuilapa"<<endl;
+			cout<<"\tLugar                 Precio"<<endl;
+			cout<<"\n1. Pradera Concepcion -------- Q.5.00"<<endl;
+			cout<<"2. Fraijanes ----------------- Q.5.00"<<endl;
+			cout<<"3. Entrada Jocotillo --------- Q.7.00"<<endl;
+			cout<<"4. El Cerinal ---------------- Q.7.00"<<endl;
+			cout<<"5. Barberena ----------------- Q.10.00"<<endl;
+			cout<<"6. Cuilapa ------------------- Q.15.00"<<endl;
+			cout<<"\nPresione una tecla para volver al menu: ";
+			
+			system("pause>nul");		
+			break;
+		
+		case 2:			
+			cout<<"\n1. Pradera Concepcion"<<endl;
+			cout<<"2. Fraijanes"<<endl;
+			cout<<"3. Entrada Jocotillo"<<endl;
+			cout<<"4. El Cerinal"<<endl;
+			cout<<"5. Barberena"<<endl;
+			cout<<"6. Cuilapa"<<endl;
+			cout<<"Ingrese el numero del lugar a donde se dirige: ";
+			cin>>x;
+			
+			for (int i=0;i<1;i++){			
+			cout<<"Cuantos pasajes desea pagar? ";
+			cin>>n;
+			v[i] += n;}
+				
+				for (int i=0;i<1;i++){
+				if(v[i]>40){
+					cout<<"\n\tLo sentimos, el bus esta lleno ):"<<endl;
+					
+					system("pause>nul");
+					return 0;	
+				} 
+				} 
+					if(x==1)
+					{
+						total=n*5;
+						cout<<"\nEl total del pasaje a Pradera Concepcion es de: Q"<<total<<endl;
+						cout<<"\n\tBuen Viaje!"<<endl;
+						for(m=1;m<=n;m++){
+							archivo<<"Se pagó pasaje a Pradera Concepcion"<<endl;
+						}
+										
+					} else 
+					{	
+						if(x==2)
+						{
+							total=n*5;
+							cout<<"\nEl total del pasaje a Fraijanes es de: Q"<<total<<endl;
+							cout<<"\n\tBuen Viaje!"<<endl;
+							for(m=1;m<=n;m++){
+								archivo<<"Se pagó pasaje a Fraijanes"<<endl;
+							}				
+						} else
+						{
+							if(x==3)
+							{
+							total=n*7;
+							cout<<"\nEl total del pasaje a Entrada Jocotillo es de: Q"<<total<<endl;
+							cout<<"\n\tBuen Viaje!"<<endl;	
+							for(m=1;m<=n;m++){
+								archivo<<"Se pagó pasaje a Entrada Jocotillo"<<endl;
+							}			
+							} else
+							{ 
+								if(x==4)
+								{
+								total=n*7;
+								cout<<"\nEl total del pasaje a El Cerinal es de: Q"<<total<<endl;
+								cout<<"\n\tBuen Viaje!"<<endl;		
+								for(m=1;m<=n;m++){
+									archivo<<"Se pagó pasaje a El Cerinal"<<endl;
+								}		
+								} else
+								{
+									if(x==5)
+									{
+									total=n*10;
+									cout<<"\nEl total del pasaje a Barberena es de: Q"<<total<<endl;
+									cout<<"\n\tBuen Viaje!"<<endl;	
+									for(m=1;m<=n;m++){
+										archivo<<"Se pagó pasaje a Barberena"<<endl;
+									}			
+									} else
+									{
+										if(x==6)
+										{
+										total=n*15;
+										cout<<"\nEl total del pasaje a Cuilapa es de: Q"<<total<<endl;
+										cout<<"\n\tBuen Viaje!"<<endl;	
+										for(m=1;m<=n;m++){
+											archivo<<"Se pagó pasaje a Cuilapa"<<endl;
+										}
+										}
+									}	
+								}	
+							}
+						}
+					} 
+			
+			system("pause>nul");		
+			break;
+			
+		case 3:
+			for (int i=0;i<1;i++){
+				if(v[i]>=40){
+					cout<<"\n\tLo sentimos, no hay asientos disponibles ):"<<endl;
+					
+					system("pause>nul");
+					return 0;	
+				} else {
+					dis = 40 - v[i];
+					cout<<"\n\tHay "<<dis<<" asientos vacios."<<endl;
+					cout<<"\n\tHay "<<v[i]<<" asientos ocupados."<<endl;
+					cout<<"\nPresione una tecla para volver al menu: ";
+				}
+			}
+			
+			system("pause>nul");		
+			break;
+			
+		case 0:
+			repetir = false;
+			break;
+	
+	}
+	} while (repetir);
+	
+	archivo.close();
+	return 0;
+}
